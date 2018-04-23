@@ -16,6 +16,9 @@ const env = require('../config/prod.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
+  performance: {
+    hints: false
+  },
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
@@ -84,7 +87,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: 'css/app.[name].css',
       chunkFilename: 'css/app.[contenthash:12].css'  // use contenthash *
     }),
-    
+
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
